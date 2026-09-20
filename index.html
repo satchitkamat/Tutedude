@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuteDude - Learn for Free. 100% Refund.</title>
+    <script>
+      (function(){
+        var r = document.documentElement;
+        var t = localStorage.getItem('theme');
+        if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        if (t === 'dark') r.setAttribute('data-theme','dark');
+        r.style.colorScheme = t;
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="strip-track">
+            <div class="strip-content">
+                <span>The 100% Refund Promise: Finish in 3 months. Get every rupee back.</span>
+                <span class="strip-dot"></span>
+                <span>Learn from IIT alumni · Finish the course · Get 100% back</span>
+                <span class="strip-dot"></span>
+                <span>1:1 Mentorship · Lifetime Access · Verified Certificate</span>
+                <span class="strip-dot"></span>
+            </div>
+            <div class="strip-content" aria-hidden="true">
+                <span>The 100% Refund Promise: Finish in 3 months. Get every rupee back.</span>
+                <span class="strip-dot"></span>
+                <span>Learn from IIT alumni · Finish the course · Get 100% back</span>
+                <span class="strip-dot"></span>
+                <span>1:1 Mentorship · Lifetime Access · Verified Certificate</span>
+                <span class="strip-dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="gap:0;padding:0;">
+                <img src="TD_Logo-1.png" alt="TuteDude" style="height:44px;width:auto;object-fit:contain;display:block;">
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+                <div id="authButtons" style="display: flex; gap: 8px;">
+                    <button class="btn btn-ghost" id="loginBtn" style="padding: 8px 16px; font-size: 0.8rem; width: auto;">Log In</button>
+                    <button class="btn btn-primary" id="signupBtn" style="padding: 8px 16px; font-size: 0.8rem; width: auto;">Get Started Free</button>
+                </div>
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar">JD</div>
+                    <button class="btn btn-outline" id="logoutBtn" style="padding: 6px 12px; font-size: 0.8rem; width: auto;">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="hero-badge">Built by IIT Delhi alumni</span>
+                <h1>Get a world-class education. <span>Pay nothing if you finish.</span></h1>
+                <p class="hero-subtext">Learn from IIT alumni. Finish the course. Get 100% back. No tricks, no hidden fees.</p>
+
+                <div class="refund-promise-box">
+                    <h3><i class="fa-solid fa-hand-holding-dollar"></i> The Freedom Plan</h3>
+                    <div class="refund-steps">
+                        <div class="refund-step">
+                            <div class="step-icon">1</div>
+                            <p><strong>Commit ₹699.</strong> This small fee ensures you're serious about learning.</p>
+                        </div>
+                        <div class="refund-step">
+                            <div class="step-icon">2</div>
+                            <p><strong>Finish the course in 3 months.</strong> Watch lectures, submit assignments, build projects.</p>
+                        </div>
+                        <div class="refund-step">
+                            <div class="step-icon">3</div>
+                            <p><strong>Get 100% back.</strong> The full ₹699 returns to your bank account. No questions asked.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-cta-group">
+                    <a href="courses.html" class="btn btn-primary">Browse Courses</a>
+                    <a href="#how-it-works" class="btn btn-ghost">See How It Works</a>
+                </div>
+
+                <div class="hero-trust">
+                    <i class="fa-brands fa-google" style="font-size: 1.2rem;"></i>
+                    <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+                    <span><strong>4.9/5</strong> from 100k+ learners</span>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Students learning">
+                <div class="floating-card">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    <span>100% Money Back</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-bar">
+        <div class="container stats-grid">
+            <div class="stat-item"><h3>50+</h3><p>Expert Courses</p></div>
+            <div class="stat-item"><h3>100k+</h3><p>Learners</p></div>
+            <div class="stat-item"><h3>10k+</h3><p>Projects Built</p></div>
+            <div class="stat-item"><h3>1:1</h3><p>Mentorship</p></div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2>Start Learning Today</h2>
+                <p>Choose from our top-rated courses. Every single one comes with the 100% refund guarantee.</p>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-icon"><i class="fa-brands fa-react"></i></div>
+                    <h4>MERN Stack Development</h4>
+                    <p>Build full-stack web apps with MongoDB, Express, React, and Node.js.</p>
+                    <div class="course-footer">
+                        <div class="course-price">₹699 <span>₹2,999</span></div>
+                        <a href="template.html?id=mern-stack" class="btn btn-primary" style="padding: 6px 16px; font-size: 0.85rem;">Start Free</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon"><i class="fa-brands fa-python"></i></div>
+                    <h4>Python for Data Science</h4>
+                    <p>From basics to advanced data analysis and visualization.</p>
+                    <div class="course-footer">
+                        <div class="course-price">₹699 <span>₹2,499</span></div>
+                        <a href="template.html?id=python" class="btn btn-primary" style="padding: 6px 16px; font-size: 0.85rem;">Start Free</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                    <h4>UI/UX Design</h4>
+                    <p>Master user research, wireframing, and prototyping.</p>
+                    <div class="course-footer">
+                        <div class="course-price">₹699 <span>₹1,999</span></div>
+                        <a href="template.html?id=ui-ux-designing" class="btn btn-primary" style="padding: 6px 16px; font-size: 0.85rem;">Start Free</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                    <h4>Digital Marketing</h4>
+                    <p>SEO, Social Media, and Performance Marketing strategies.</p>
+                    <div class="course-footer">
+                        <div class="course-price">₹699 <span>₹2,999</span></div>
+                        <a href="template.html?id=digital-marketing" class="btn btn-primary" style="padding: 6px 16px; font-size: 0.85rem;">Start Free</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="courses.html" class="btn btn-outline">View All 77+ Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="combo-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Save More with Combo Packs</h2>
+                <p>Bundle 4 or more courses and save up to 57%. The 100% refund guarantee applies to every pack.</p>
+            </div>
+            <div class="combo-grid">
+                <div class="combo-card">
+                    <div class="combo-header">
+                        <span class="combo-badge">40% OFF</span>
+                        <h3>Full Stack Developer Pack</h3>
+                        <p>8,000+ learners enrolled</p>
+                    </div>
+                    <div class="combo-body">
+                        <div class="combo-features"><span>MERN Stack</span><span>React JS</span><span>DSA with Python</span><span>DevOps</span></div>
+                        <div class="combo-footer">
+                            <span style="color: var(--highlight); font-size: 0.85rem;"><i class="fa-solid fa-star"></i> 4.8</span>
+                            <button class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">View Pack</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="combo-card">
+                    <div class="combo-header">
+                        <span class="combo-badge">57% OFF</span>
+                        <h3>AI Engineer Pack</h3>
+                        <p>7,000+ learners enrolled</p>
+                    </div>
+                    <div class="combo-body">
+                        <div class="combo-features"><span>Python</span><span>Gen AI</span><span>Machine Learning</span><span>Deep Learning</span></div>
+                        <div class="combo-footer">
+                            <span style="color: var(--highlight); font-size: 0.85rem;"><i class="fa-solid fa-star"></i> 4.9</span>
+                            <button class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">View Pack</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="combo-card">
+                    <div class="combo-header">
+                        <span class="combo-badge">45% OFF</span>
+                        <h3>Graphic Designer Pack</h3>
+                        <p>5,000+ learners enrolled</p>
+                    </div>
+                    <div class="combo-body">
+                        <div class="combo-features"><span>Photoshop</span><span>Illustrator</span><span>InDesign</span><span>AI Design</span></div>
+                        <div class="combo-footer">
+                            <span style="color: var(--highlight); font-size: 0.85rem;"><i class="fa-solid fa-star"></i> 4.6</span>
+                            <button class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">View Pack</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose TuteDude?</h2>
+                <p>We're not just another course platform. We're your career partner.</p>
+            </div>
+            <div class="value-grid">
+                <div class="value-card"><i class="fa-solid fa-user-tie"></i><h4>1:1 Mentorship</h4><p>Live sessions with industry experts to clear doubts and guide your career.</p></div>
+                <div class="value-card"><i class="fa-solid fa-briefcase"></i><h4>Internship Opportunities</h4><p>Work on real projects and get placed with our hiring partners.</p></div>
+                <div class="value-card"><i class="fa-solid fa-certificate"></i><h4>Completion Certificate</h4><p>Get a verified certificate from TuteDude to showcase on your profile.</p></div>
+                <div class="value-card"><i class="fa-solid fa-infinity"></i><h4>Lifetime Access</h4><p>Even after your refund, you keep the course content and community access forever.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: var(--bg-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>How We Compare</h2>
+                <p>See why learners choose us over other platforms.</p>
+            </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Features</th>
+                            <th class="th-featured"><i class="fa-solid fa-book-open"></i> TuteDude</th>
+                            <th>YouTube</th>
+                            <th>Other Platforms</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>100% Refund Guarantee</td><td><i class="fa-solid fa-circle-check check-icon"></i></td><td><i class="fa-solid fa-circle-xmark cross-icon"></i></td><td><i class="fa-solid fa-circle-xmark cross-icon"></i></td></tr>
+                        <tr><td>1:1 Mentorship</td><td><i class="fa-solid fa-circle-check check-icon"></i></td><td><i class="fa-solid fa-circle-xmark cross-icon"></i></td><td><i class="fa-solid fa-circle-xmark cross-icon"></i></td></tr>
+                        <tr><td>Dedicated Projects</td><td><i class="fa-solid fa-circle-check check-icon"></i></td><td><i class="fa-solid fa-circle-xmark cross-icon"></i></td><td><i class="fa-solid fa-circle-xmark cross-icon"></i></td></tr>
+                        <tr><td>Placement Assistance</td><td><i class="fa-solid fa-circle-check check-icon"></i></td><td><i class="fa-solid fa-circle-xmark cross-icon"></i></td><td><i class="fa-solid fa-circle-xmark cross-icon"></i></td></tr>
+                        <tr><td>Certification</td><td><i class="fa-solid fa-circle-check check-icon"></i></td><td><i class="fa-solid fa-circle-xmark cross-icon"></i></td><td><i class="fa-solid fa-circle-check check-icon"></i></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Real Students. Real Stories.</h2>
+                <p>Hear from people who started exactly where you are now.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">TS</div>
+                        <div class="testimonial-info"><h5>Tanya Singh</h5><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
+                    </div>
+                    <p class="testimonial-text">"I completed the UI/UX course in 2 months and got my full refund. The mentorship was incredible—I landed an internship 3 weeks later."</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">RS</div>
+                        <div class="testimonial-info"><h5>Rahul Singh</h5><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
+                    </div>
+                    <p class="testimonial-text">"The refund isn't a trick. I paid ₹699, completed the course, and got every rupee back. The content alone was worth 10x that."</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">S</div>
+                        <div class="testimonial-info"><h5>Sana</h5><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
+                    </div>
+                    <p class="testimonial-text">"I was skeptical about the refund, but it's real. The 1:1 mentorship made all the difference. I finally understand what I'm learning."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: var(--bg-light);" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Questions, Answered.</h2>
+            </div>
+            <div class="faq-container" style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <div class="faq-question">How does the 100% refund actually work? <i class="fa-solid fa-plus"></i></div>
+                    <div class="faq-answer">You pay ₹699 to enroll. You complete the course (lectures + assignments) within 3 months. Once done, we transfer the full ₹699 back to your original payment method. No hidden conditions.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What happens after I get the refund? <i class="fa-solid fa-plus"></i></div>
+                    <div class="faq-answer">You keep lifetime access to the course content, the community, and all future updates. The refund is just our way of rewarding your commitment.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Why do you charge ₹699 in the first place? <i class="fa-solid fa-plus"></i></div>
+                    <div class="faq-answer">A small fee ensures you're serious about learning. Free courses are often undervalued and abandoned. The refund removes the financial risk while keeping you committed.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do I get a certificate? <i class="fa-solid fa-plus"></i></div>
+                    <div class="faq-answer">Yes! Upon completion, you receive a verified TuteDude certificate that you can share on LinkedIn and your resume.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo" style="margin-bottom:10px;gap:0;padding:0;">
+                        <img src="TD_Logo-1.png" alt="TuteDude" style="height:40px;width:auto;object-fit:contain;display:block;">
+                    </div>
+                    <p>Learn for free. Pay nothing if you finish. That's our promise.</p>
+                    <div style="display: flex; gap: 15px; margin-top: 15px;">
+                        <a href="#"><i class="fa-brands fa-linkedin" style="font-size: 1.5rem; color: var(--text-grey);"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram" style="font-size: 1.5rem; color: var(--text-grey);"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube" style="font-size: 1.5rem; color: var(--text-grey);"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul><li><a href="#">About Us</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Use</a></li></ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Top Courses</h4>
+                    <ul><li><a href="#">MERN Stack</a></li><li><a href="#">Data Science</a></li><li><a href="#">UI/UX Design</a></li><li><a href="#">Python</a></li></ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul><li><i class="fa-solid fa-envelope"></i> support@tutedude.com</li><li><i class="fa-solid fa-phone"></i> +91 8570818694</li></ul>
+                </div>
+            </div>
+            <div class="footer-bottom">&copy; 2024 TuteDude. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+            <h2>Welcome Back</h2>
+            <form id="loginForm">
+                <div class="form-group"><label>Email</label><input type="email" placeholder="you@example.com" required></div>
+                <div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" required></div>
+                <button type="submit" class="btn btn-primary">Log In</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

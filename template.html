@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MERN Stack Development - TuteDude</title>
+    <script>
+      (function(){
+        var r = document.documentElement;
+        var t = localStorage.getItem('theme');
+        if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        if (t === 'dark') r.setAttribute('data-theme','dark');
+        r.style.colorScheme = t;
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="strip-track">
+            <div class="strip-content">
+                <span>Enjoy 100% Refund On Course Completion</span>
+                <span class="strip-dot"></span>
+                <span>Learn from IIT alumni · Finish the course · Get 100% refund</span>
+                <span class="strip-dot"></span>
+                <span>1:1 Doubt Solving &amp; Mentorship Included</span>
+                <span class="strip-dot"></span>
+            </div>
+            <div class="strip-content" aria-hidden="true">
+                <span>Enjoy 100% Refund On Course Completion</span>
+                <span class="strip-dot"></span>
+                <span>Learn from IIT alumni · Finish the course · Get 100% back</span>
+                <span class="strip-dot"></span>
+                <span>1:1 Doubt Solving &amp; Mentorship Included</span>
+                <span class="strip-dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="gap:0;padding:0;">
+                <img src="TD_Logo-1.png" alt="TuteDude" style="height:44px;width:auto;object-fit:contain;display:block;">
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+                <div id="authButtons" style="display: flex; gap: 8px;">
+                    <button class="btn btn-ghost" id="loginBtn" style="padding: 8px 16px; font-size: 0.8rem; width: auto;">Log In</button>
+                    <button class="btn btn-primary" id="signupBtn" style="padding: 8px 16px; font-size: 0.8rem; width: auto;">Get Started Free</button>
+                </div>
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar">JD</div>
+                    <button class="btn btn-outline" id="logoutBtn" style="padding: 6px 12px; font-size: 0.8rem; width: auto;">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Course Detail Header -->
+    <section class="course-detail-header">
+        <div class="container">
+            <div class="course-main-info">
+                <!-- Breadcrumb & Course Switcher -->
+                <div class="breadcrumb-switcher-wrap" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 18px;">
+                    <div style="font-size: 0.85rem; color: var(--ink-soft);">
+                        <a href="index.html" style="color: var(--accent); font-weight: 500;">Home</a> /
+                        <a href="courses.html" style="color: var(--accent); font-weight: 500;">Courses</a> /
+                        <span id="breadcrumbCourseTitle" style="color: var(--ink); font-weight: 600;">MERN Stack</span>
+                    </div>
+
+                    <!-- Quick Switcher Dropdown -->
+                    <div class="course-switcher-box">
+                        <label for="courseSwitcher">
+                            <i class="fa-solid fa-layer-group" style="color: var(--accent);"></i> Explore:
+                        </label>
+                        <select id="courseSwitcher">
+                            <option value="">Loading courses...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Course Category Pill -->
+                <div id="courseCategoryBadge" class="course-category-badge">
+                    <i class="fa-brands fa-react"></i> <span>Development</span>
+                </div>
+
+                <h1 id="courseTitle">MERN Stack Development</h1>
+                <p class="course-subtitle" id="courseSubtitle">Master MongoDB, Express, React, and Node.js to build modern, full-stack web applications from scratch.</p>
+
+                <div class="course-badges">
+                    <span class="course-badge" id="courseRatingBadge"><i class="fa-solid fa-star" style="color: var(--highlight);"></i> <span id="courseRatingVal">4.8</span> (2,500+ ratings)</span>
+                    <span class="course-badge" id="courseEnrolledBadge"><i class="fa-solid fa-users"></i> <span id="courseEnrolledVal">8,000+</span> Learners</span>
+                    <span class="course-badge" id="courseHoursBadge"><i class="fa-solid fa-clock"></i> <span id="courseHoursVal">40 Hours</span></span>
+                    <span class="course-badge"><i class="fa-solid fa-signal"></i> Beginner to Advanced</span>
+                    <span class="course-badge"><i class="fa-solid fa-briefcase" style="color: var(--accent);"></i> Placement Support</span>
+                    <span class="course-badge"><i class="fa-solid fa-certificate"></i> Certificate of Completion</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Layout -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="course-detail-grid">
+
+                <!-- Left Column: Course Content -->
+                <div class="course-content-area">
+
+                    <!-- What you'll learn -->
+                    <div class="content-section">
+                        <h3>What you'll learn</h3>
+                        <ul id="learnPointsList" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                            <li style="display: flex; gap: 8px; font-size: 0.9rem;"><i class="fa-solid fa-check" style="color: var(--brand-success); margin-top: 5px;"></i> Build full-stack apps with MERN</li>
+                            <li style="display: flex; gap: 8px; font-size: 0.9rem;"><i class="fa-solid fa-check" style="color: var(--brand-success); margin-top: 5px;"></i> Master React Hooks &amp; Context API</li>
+                            <li style="display: flex; gap: 8px; font-size: 0.9rem;"><i class="fa-solid fa-check" style="color: var(--brand-success); margin-top: 5px;"></i> Create RESTful APIs with Node.js</li>
+                            <li style="display: flex; gap: 8px; font-size: 0.9rem;"><i class="fa-solid fa-check" style="color: var(--brand-success); margin-top: 5px;"></i> Manage databases with MongoDB</li>
+                            <li style="display: flex; gap: 8px; font-size: 0.9rem;"><i class="fa-solid fa-check" style="color: var(--brand-success); margin-top: 5px;"></i> Implement Authentication &amp; Authorization</li>
+                            <li style="display: flex; gap: 8px; font-size: 0.9rem;"><i class="fa-solid fa-check" style="color: var(--brand-success); margin-top: 5px;"></i> Deploy applications to production</li>
+                            <li style="display: flex; gap: 8px; font-size: 0.9rem;"><i class="fa-solid fa-check" style="color: var(--brand-success); margin-top: 5px;"></i> Placement Support: Resume, Mock Interviews &amp; Referrals</li>
+                        </ul>
+                    </div>
+
+                    <!-- Course Curriculum - Interactive Sprint Pipeline -->
+                    <div class="content-section" id="curriculum" style="padding:0;background:transparent;border:none;box-shadow:none;">
+
+                        <!-- Career Readiness & Sprint Tracker Dashboard -->
+                        <div class="pipeline-dashboard">
+                            <div class="pipeline-dashboard-info">
+                                <div class="pipeline-kicker" id="pipelineKicker">90-DAY CAREER SPRINT ROADMAP</div>
+                                <div class="pipeline-title" id="pipelineTitle">Your Professional Full-Stack Journey</div>
+                                <div class="pipeline-meter-wrap">
+                                    <div class="pipeline-meter-fill" id="pipelineMeterFill">
+                                        <div class="pipeline-meter-sheen"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pipeline-stats">
+                                <div class="pipeline-stat-chip">
+                                    <span class="pipeline-stat-icon">⚡</span>
+                                    <div>
+                                        <b>850 XP</b>
+                                        <small>Career Score</small>
+                                    </div>
+                                </div>
+                                <div class="pipeline-stat-chip">
+                                    <span class="pipeline-stat-icon">🔥</span>
+                                    <div>
+                                        <b>12-Day</b>
+                                        <small>Learning Streak</small>
+                                    </div>
+                                </div>
+                                <div class="pipeline-stat-chip">
+                                    <span class="pipeline-stat-icon">💼</span>
+                                    <div>
+                                        <b>4 / 6 Sprints</b>
+                                        <small>Portfolio Ready</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Category Filters -->
+                        <div class="pipeline-filters">
+                            <button class="pipeline-filter-btn active" data-category="all">All Sprints (7)</button>
+                            <button class="pipeline-filter-btn" data-category="foundation">Foundations</button>
+                            <button class="pipeline-filter-btn" data-category="frontend">Frontend</button>
+                            <button class="pipeline-filter-btn" data-category="backend">Backend</button>
+                            <button class="pipeline-filter-btn" data-category="deploy">Deploy &amp; Ship</button>
+                        </div>
+
+                        <!-- Sprint Pipeline Track -->
+                        <div class="pipeline-track" id="pipelineTrack">
+                            <div class="pipeline-track-laser" id="pipelineLaser"></div>
+
+                            <!-- Sprint 01: Web Foundations (Done) -->
+                            <div class="sprint-row" data-category="foundation">
+                                <div class="sprint-node done" title="Sprint 01: Web Foundations">
+                                    <span class="node-check">✓</span>
+                                </div>
+                                <div class="sprint-artboard" onclick="toggleArtboardDrawer(this, event)">
+                                    <div class="artboard-topbar">
+                                        <span class="artboard-filename">01_web_foundations.fig · 1440 × 900</span>
+                                        <span class="artboard-status status-done">COMPLETED ✓</span>
+                                    </div>
+                                    <div class="artboard-body">
+                                        <div class="artboard-header-row">
+                                            <h3 class="artboard-title">Sprint 01: Web Foundations &amp; Modern Javascript</h3>
+                                            <span class="artboard-duration">4 LESSONS · 1 WORKSHOP</span>
+                                        </div>
+                                        <p class="artboard-desc">Understand how the web works end-to-end, set up your full modern dev environment, and master modern ES6+ JS syntax.</p>
+                                        <div class="artboard-deliverable">
+                                            <b>Deliverable:</b> Working local dev environment + first responsive web application
+                                        </div>
+                                        <div class="artboard-chips">
+                                            <span class="artboard-chip">HTTP &amp; DNS</span>
+                                            <span class="artboard-chip">HTML5 &amp; CSS3</span>
+                                            <span class="artboard-chip">Dev Tools</span>
+                                            <span class="artboard-chip">ES6+ JavaScript</span>
+                                        </div>
+                                        <div class="artboard-lessons-toggle">
+                                            <span>View 4 lessons</span> <i class="fa-solid fa-chevron-down"></i>
+                                        </div>
+                                        <div class="artboard-lessons-drawer">
+                                            <ul class="artboard-lesson-list">
+                                                <li><i class="fa-solid fa-circle-play"></i> How the web works (HTTP, DNS, Browsers)</li>
+                                                <li><i class="fa-solid fa-circle-play"></i> Setting up your development environment</li>
+                                                <li><i class="fa-solid fa-circle-play"></i> Introduction to HTML5 and CSS3</li>
+                                                <li><i class="fa-solid fa-circle-play"></i> JavaScript Fundamentals (ES6+)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sprint 02: React Frontend (Done) -->
+                            <div class="sprint-row" data-category="frontend">
+                                <div class="sprint-node done" title="Sprint 02: Frontend with React">
+                                    <span class="node-check">✓</span>
+                                </div>
+                                <div class="sprint-artboard" onclick="toggleArtboardDrawer(this, event)">
+                                    <div class="artboard-topbar">
+                                        <span class="artboard-filename">02_react_frontend.fig · 1440 × 900</span>
+                                        <span class="artboard-status status-done">COMPLETED ✓</span>
+                                    </div>
+                                    <div class="artboard-body">
+                                        <div class="artboard-header-row">
+                                            <h3 class="artboard-title">Sprint 02: Frontend Architecture with React JS</h3>
+                                            <span class="artboard-duration">5 LESSONS · 1 SPA PROJECT</span>
+                                        </div>
+                                        <p class="artboard-desc">Build dynamic, component-based UIs. Master React hooks, reusable UI patterns, routing, and client-side state management.</p>
+                                        <div class="artboard-deliverable">
+                                            <b>Deliverable:</b> Multi-page React SPA with routing and global state
+                                        </div>
+                                        <div class="artboard-chips">
+                                            <span class="artboard-chip">Components &amp; Props</span>
+                                            <span class="artboard-chip">useState &amp; useEffect</span>
+                                            <span class="artboard-chip">React Router</span>
+                                            <span class="artboard-chip">Context API</span>
+                                        </div>
+                                        <div class="artboard-lessons-toggle">
+                                            <span>View 5 lessons</span> <i class="fa-solid fa-chevron-down"></i>
+                                        </div>
+                                        <div class="artboard-lessons-drawer">
+                                            <ul class="artboard-lesson-list">
+                                                <li><i class="fa-solid fa-circle-play"></i> React Components, Props, and State</li>
+                                                <li><i class="fa-solid fa-circle-play"></i> Handling Events and Forms</li>
+                                                <li><i class="fa-solid fa-circle-play"></i> React Hooks (useState, useEffect)</li>
+                                                <li><i class="fa-solid fa-circle-play"></i> Routing with React Router</li>
+                                                <li><i class="fa-solid fa-circle-play"></i> State Management with Context API</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Milestone -->
+                            <div class="sprint-row" data-category="frontend">
+                                <div class="sprint-node milestone" title="Checkpoint Milestone">
+                                    🏆
+                                </div>
+                                <div class="sprint-artboard" onclick="toggleArtboardDrawer(this, event)">
+                                    <div class="artboard-topbar">
+                                        <span class="artboard-filename">milestone_evaluation.audit · CERTIFIED</span>
+                                        <span class="artboard-status status-milestone">MILESTONE UNLOCKED ★</span>
+                                    </div>
+                                    <div class="artboard-body">
+                                        <div class="artboard-header-row">
+                                            <h3 class="artboard-title">Checkpoint Milestone: Frontend React Badge &amp; Review</h3>
+                                            <span class="artboard-duration">+150 XP AWARDED · 1:1 PEER REVIEW</span>
+                                        </div>
+                                        <p class="artboard-desc">Submit your React SPA for rigorous mentor evaluation and performance audit. Earn the verified Frontend Developer credential.</p>
+                                        <div class="artboard-deliverable">
+                                            <b>Achievement:</b> TuteDude Certified Frontend Engineer Checkpoint
+                                        </div>
+                                        <div class="artboard-chips">
+                                            <span class="artboard-chip">Code review session</span>
+                                            <span class="artboard-chip">Performance audit</span>
+                                            <span class="artboard-chip">1:1 mentor critique</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sprint 03: Backend (ACTIVE) -->
+                            <div class="sprint-row active-sprint" data-category="backend">
+                                <div class="sprint-node active" title="Sprint 03: Backend with Node & Express (Current Sprint)">
+                                    03
+                                </div>
+                                <div class="sprint-artboard" onclick="toggleArtboardDrawer(this, event)">
+                                    <!-- Animated Figma Cursor -->
+                                    <div class="figma-cursor">
+                                        <svg class="figma-cursor-icon" viewBox="0 0 24 24" fill="none">
+                                            <path d="M5.65 3.12L19.35 12.35L12.35 13.9L8.6 20.35L5.65 3.12Z" fill="#e83b6b" stroke="#ffffff" stroke-width="1.8" stroke-linejoin="round"/>
+                                        </svg>
+                                        <span class="figma-cursor-tag">You (In Sprint)</span>
+                                        <div class="figma-comment-bubble">💬 JWT auth API &amp; routes approved by mentor!</div>
+                                    </div>
+
+                                    <div class="artboard-topbar">
+                                        <span class="artboard-filename">03_node_express_active.fig · 1440 × 900</span>
+                                        <span class="artboard-status status-active">
+                                            <span class="status-active-dot"></span>
+                                            CURRENT SPRINT · IN PROGRESS
+                                        </span>
+                                    </div>
+                                    <div class="artboard-body">
+                                        <div class="artboard-header-row">
+                                            <h3 class="artboard-title">Sprint 03: Backend with Node.js &amp; Express</h3>
+                                            <span class="artboard-duration">4 LESSONS · 1 REST API PROJECT</span>
+                                        </div>
+                                        <p class="artboard-desc">Design and build production-grade REST APIs with structured middleware, error handling pipelines, and secure JWT authentication.</p>
+                                        <div class="artboard-deliverable">
+                                            <b>Deliverable:</b> Authenticated REST API with full CRUD endpoints
+                                        </div>
+                                        <div class="artboard-chips">
+                                            <span class="artboard-chip">Node.js &amp; NPM</span>
+                                            <span class="artboard-chip">Express.js</span>
+                                            <span class="artboard-chip">JWT Auth</span>
+                                            <span class="artboard-chip">Custom Middleware</span>
+                                        </div>
+                                        <div class="artboard-lessons-toggle">
+                                            <span>View 4 lessons</span> <i class="fa-solid fa-chevron-down"></i>
+                                        </div>
+                                        <div class="artboard-lessons-drawer">
+                                            <ul class="artboard-lesson-list">
+                                                <li><i class="fa-solid fa-circle-play"></i> Introduction to Node.js and NPM</li>
+                                                <li><i class="fa-solid fa-circle-play"></i> Building RESTful APIs with Express</li>
+                                                <li><i class="fa-solid fa-circle-play"></i> Middleware and Error Handling</li>
+                                                <li><i class="fa-solid fa-circle-play"></i> Authentication using JWT</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sprint 04: MongoDB (Locked) -->
+                            <div class="sprint-row" data-category="backend">
+                                <div class="sprint-node locked" title="Sprint 04: Database with MongoDB (Locked)">
+                                    🔒
+                                </div>
+                                <div class="sprint-artboard" onclick="toggleArtboardDrawer(this, event)">
+                                    <div class="artboard-topbar">
+                                        <span class="artboard-filename">04_mongodb_schemas.fig · LOCKED</span>
+                                        <span class="artboard-status status-locked">UNLOCKS AFTER SPRINT 03</span>
+                                    </div>
+                                    <div class="artboard-body">
+                                        <div class="artboard-header-row">
+                                            <h3 class="artboard-title">Sprint 04: Database with MongoDB &amp; Mongoose</h3>
+                                            <span class="artboard-duration">3 LESSONS · 1 DATA WORKSHOP</span>
+                                        </div>
+                                        <p class="artboard-desc">Master NoSQL database design. Build schemas, run indexed queries, and model real-world data with Mongoose ODM.</p>
+                                        <div class="artboard-deliverable">
+                                            <b>Deliverable:</b> Backend connected to live MongoDB Atlas cluster
+                                        </div>
+                                        <div class="artboard-chips">
+                                            <span class="artboard-chip">MongoDB Atlas</span>
+                                            <span class="artboard-chip">Mongoose ORM</span>
+                                            <span class="artboard-chip">Data Modeling</span>
+                                            <span class="artboard-chip">Aggregation</span>
+                                        </div>
+                                        <div class="artboard-lessons-toggle">
+                                            <span>View 3 lessons</span> <i class="fa-solid fa-chevron-down"></i>
+                                        </div>
+                                        <div class="artboard-lessons-drawer">
+                                            <ul class="artboard-lesson-list">
+                                                <li><i class="fa-solid fa-circle-play"></i> Introduction to NoSQL and MongoDB</li>
+                                                <li><i class="fa-solid fa-circle-play"></i> Schema Design with Mongoose</li>
+                                                <li><i class="fa-solid fa-circle-play"></i> CRUD operations and complex queries</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sprint 05: Full Stack Integration (Locked) -->
+                            <div class="sprint-row" data-category="deploy">
+                                <div class="sprint-node locked" title="Sprint 05: Full Stack MERN Integration (Locked)">
+                                    🔒
+                                </div>
+                                <div class="sprint-artboard" onclick="toggleArtboardDrawer(this, event)">
+                                    <div class="artboard-topbar">
+                                        <span class="artboard-filename">05_mern_integration.fig · LOCKED</span>
+                                        <span class="artboard-status status-locked">UNLOCKS AFTER SPRINT 04</span>
+                                    </div>
+                                    <div class="artboard-body">
+                                        <div class="artboard-header-row">
+                                            <h3 class="artboard-title">Sprint 05: Full Stack Integration &amp; Real Projects</h3>
+                                            <span class="artboard-duration">5 LESSONS · 2 FULL PROJECTS</span>
+                                        </div>
+                                        <p class="artboard-desc">Connect React with Node, Express, and MongoDB. Implement full auth, state sync, payment gateway, and file uploads.</p>
+                                        <div class="artboard-deliverable">
+                                            <b>Deliverable:</b> Complete End-to-End MERN Application with live DB
+                                        </div>
+                                        <div class="artboard-chips">
+                                            <span class="artboard-chip">Axios Interceptors</span>
+                                            <span class="artboard-chip">State Sync</span>
+                                            <span class="artboard-chip">Payment Gateway</span>
+                                            <span class="artboard-chip">File Uploads</span>
+                                        </div>
+                                        <div class="artboard-lessons-toggle">
+                                            <span>View 5 lessons</span> <i class="fa-solid fa-chevron-down"></i>
+                                        </div>
+                                        <div class="artboard-lessons-drawer">
+                                            <ul class="artboard-lesson-list">
+                                                <li><i class="fa-solid fa-circle-play"></i> Connecting Frontend with Backend APIs</li>
+                                                <li><i class="fa-solid fa-circle-play"></i> Global State with Redux / Context</li>
+                                                <li><i class="fa-solid fa-circle-play"></i> Image Uploads with Cloudinary / S3</li>
+                                                <li><i class="fa-solid fa-circle-play"></i> Payment Integration with Razorpay / Stripe</li>
+                                                <li><i class="fa-solid fa-circle-play"></i> End-to-end Testing and Debugging</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sprint 06: DevOps & Capstone (Locked) -->
+                            <div class="sprint-row" data-category="deploy">
+                                <div class="sprint-node locked" title="Sprint 06: DevOps & Capstone">
+                                    🔒
+                                </div>
+                                <div class="sprint-artboard" onclick="toggleArtboardDrawer(this, event)">
+                                    <div class="artboard-topbar">
+                                        <span class="artboard-filename">06_production_deploy.fig · LOCKED</span>
+                                        <span class="artboard-status status-locked">FINAL CAPSTONE SPRINT</span>
+                                    </div>
+                                    <div class="artboard-body">
+                                        <div class="artboard-header-row">
+                                            <h3 class="artboard-title">Sprint 06: Production Deployment &amp; Capstone</h3>
+                                            <span class="artboard-duration">3 LESSONS · 1 PRODUCTION CAPSTONE</span>
+                                        </div>
+                                        <p class="artboard-desc">Deploy full-stack apps to production with CI/CD pipelines, custom domains, SSL certificates, and security best practices.</p>
+                                        <div class="artboard-deliverable">
+                                            <b>Deliverable:</b> Live production deployment with custom domain &amp; CI/CD
+                                        </div>
+                                        <div class="artboard-chips">
+                                            <span class="artboard-chip">Render / Vercel</span>
+                                            <span class="artboard-chip">Docker Basics</span>
+                                            <span class="artboard-chip">CI/CD Pipelines</span>
+                                            <span class="artboard-chip">Capstone Review</span>
+                                        </div>
+                                        <div class="artboard-lessons-toggle">
+                                            <span>View 3 lessons</span> <i class="fa-solid fa-chevron-down"></i>
+                                        </div>
+                                        <div class="artboard-lessons-drawer">
+                                            <ul class="artboard-lesson-list">
+                                                <li><i class="fa-solid fa-circle-play"></i> Deployment strategies for MERN apps</li>
+                                                <li><i class="fa-solid fa-circle-play"></i> Environment variables &amp; secrets management</li>
+                                                <li><i class="fa-solid fa-circle-play"></i> Final capstone project build &amp; submission</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- end pipeline-track -->
+
+                        <!-- Floating Notification Toast -->
+                        <div class="pipeline-toast" id="pipelineToast"></div>
+                    </div>
+
+                    <!-- Instructor -->
+                    <div class="content-section">
+                        <h3>Your Instructor</h3>
+                        <div class="instructor-card">
+                            <div class="instructor-img"><i class="fa-solid fa-user-tie" id="instructorIcon"></i></div>
+                            <div>
+                                <h4 style="margin-bottom: 4px;" id="instructorName">Rahul Sharma</h4>
+                                <p style="font-size: 0.85rem; color: var(--ink-soft);" id="instructorTitle">Senior Software Engineer &amp; IIT Delhi Alumnus</p>
+                                <p style="font-size: 0.85rem; color: var(--ink-soft); margin-top: 8px;" id="instructorBio">Rahul has over 8 years of experience building scalable web applications for top tech companies. He specializes in the MERN stack and has mentored over 10,000 students.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Enroll Card (Sticky) -->
+                <aside class="enroll-sidebar">
+                    <div class="enroll-card">
+                        <div class="enroll-price"><span id="sidebarPriceCurrent">₹699</span> <span id="sidebarPriceOriginal">₹2,999</span></div>
+                        <p class="enroll-discount-text" id="sidebarDiscountText">You get 76% off today!</p>
+
+                        <!-- REFUND HIGHLIGHT BOX -->
+                        <div class="refund-highlight">
+                            <i class="fa-solid fa-rotate-left"></i>
+                            <div>
+                                <strong>100% Refund Guarantee</strong>
+                                <p id="sidebarRefundDesc">Complete the course within 3 months and get your full ₹699 back in your bank account.</p>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" style="width: 100%; padding: 16px; font-size: 1.05rem; margin-bottom: 12px;">Start Learning Free</button>
+                        <button class="btn btn-ghost" style="width: 100%; padding: 16px; font-size: 1.05rem;">View Syllabus</button>
+
+                        <ul id="sidebarFeaturesList">
+                            <li><i class="fa-solid fa-check-circle"></i> Lifetime access to course</li>
+                            <li><i class="fa-solid fa-check-circle"></i> 1:1 Mentorship sessions</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Live doubt solving</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Dedicated Projects</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Placement Support &amp; Job Assistance</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Certificate of completion</li>
+                        </ul>
+                        <div style="font-size: 0.75rem; color: var(--ink-soft); text-align: center; margin-top: 15px;"><i class="fa-solid fa-lock"></i> Secure payment. No hidden charges.</div>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo" style="margin-bottom:10px;gap:0;padding:0;">
+                        <img src="TD_Logo-1.png" alt="TuteDude" style="height:40px;width:auto;object-fit:contain;display:block;">
+                    </div>
+                    <p>Level up your career with expert mentorship and internships.</p>
+                    <div style="display: flex; gap: 15px; margin-top: 15px;">
+                        <a href="#"><i class="fa-brands fa-linkedin" style="font-size: 1.5rem; color: var(--text-grey);"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram" style="font-size: 1.5rem; color: var(--text-grey);"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube" style="font-size: 1.5rem; color: var(--text-grey);"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links"><h4>Company</h4><ul><li><a href="#">About Us</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Use</a></li></ul></div>
+                <div class="footer-links"><h4>Top Courses</h4><ul><li><a href="#">Web Development</a></li><li><a href="#">Data Science</a></li><li><a href="#">UI/UX Design</a></li><li><a href="#">Python</a></li></ul></div>
+                <div class="footer-links"><h4>Contact</h4><ul><li><i class="fa-solid fa-envelope"></i> support@tutedude.com</li><li><i class="fa-solid fa-phone"></i> +91 8570818694</li></ul></div>
+            </div>
+            <div class="footer-bottom">&copy; 2024 TuteDude. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+            <h2>Welcome Back</h2>
+            <form id="loginForm">
+                <div class="form-group"><label>Email</label><input type="email" placeholder="you@example.com" required></div>
+                <div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" required></div>
+                <button type="submit" class="btn btn-primary">Log In</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="template-loader.js"></script>
+
+    <!-- Pipeline Drawer, Filter & Cursor logic -->
+    <script>
+    function toggleArtboardDrawer(artboard, e) {
+        if (e.target.closest('.artboard-chip')) return;
+        artboard.classList.toggle('open');
+
+        var cursor = document.querySelector('.figma-cursor');
+        if (cursor && !artboard.contains(cursor)) {
+            artboard.prepend(cursor);
+            cursor.style.display = 'flex';
+            var tag = cursor.querySelector('.figma-cursor-tag');
+            if (tag) tag.textContent = 'You (Inspecting)';
+        }
+    }
+
+    (function(){
+        var filterBtns = document.querySelectorAll('.pipeline-filter-btn');
+        var sprintRows = document.querySelectorAll('.sprint-row');
+        var laser = document.getElementById('pipelineLaser');
+
+        filterBtns.forEach(function(btn){
+            btn.addEventListener('click', function(){
+                filterBtns.forEach(function(b){ b.classList.remove('active'); });
+                btn.classList.add('active');
+
+                var cat = btn.getAttribute('data-category');
+                sprintRows.forEach(function(row){
+                    if (cat === 'all' || row.getAttribute('data-category') === cat) {
+                        row.classList.remove('hidden');
+                    } else {
+                        row.classList.add('hidden');
+                    }
+                });
+
+                if (laser) {
+                    laser.style.display = (cat === 'all') ? 'block' : 'none';
+                }
+            });
+        });
+
+        var toast = document.getElementById('pipelineToast');
+        var toastTimer = null;
+        function showToast(html) {
+            if (!toast) return;
+            toast.innerHTML = html;
+            toast.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 2600);
+        }
+
+        document.querySelectorAll('.sprint-node').forEach(function(node){
+            node.addEventListener('click', function(e){
+                e.stopPropagation();
+                if (node.classList.contains('milestone')) {
+                    showToast('🏆 <b>Milestone Cleared:</b> Frontend React Badge &amp; +150 XP Achieved!');
+                } else if (node.classList.contains('done')) {
+                    showToast('✓ <b>Sprint Verified:</b> Lessons completed &amp; deliverables approved.');
+                } else if (node.classList.contains('active')) {
+                    showToast('✏️ <b>Current Focus:</b> Sprint 03 · Backend REST API in progress!');
+                } else if (node.classList.contains('locked')) {
+                    showToast('🔒 <b>Sprint Locked:</b> Complete Sprint 03 Backend to unlock.');
+                }
+            });
+        });
+
+        var meterFill = document.getElementById('pipelineMeterFill');
+        if (meterFill && 'IntersectionObserver' in window) {
+            meterFill.style.width = '0%';
+            var obs = new IntersectionObserver(function(entries){
+                entries.forEach(function(entry){
+                    if (entry.isIntersecting) {
+                        meterFill.style.width = '58%';
+                        obs.disconnect();
+                    }
+                });
+            }, { threshold: 0.15 });
+            var sec = document.getElementById('curriculum');
+            if (sec) obs.observe(sec);
+        }
+    })();
+    </script>
+
+    <!-- Curriculum accordion (course-level) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const curriculumItems = document.querySelectorAll('.curriculum-item');
+            curriculumItems.forEach(item => {
+                const header = item.querySelector('.curriculum-header');
+                if (!header) return;
+                header.addEventListener('click', () => {
+                    curriculumItems.forEach(other => {
+                        if (other !== item) other.classList.remove('active');
+                    });
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

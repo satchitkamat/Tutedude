@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Courses - TuteDude</title>
+    <script>
+      (function(){
+        var r = document.documentElement;
+        var t = localStorage.getItem('theme');
+        if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        if (t === 'dark') r.setAttribute('data-theme','dark');
+        r.style.colorScheme = t;
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="strip-track">
+            <div class="strip-content">
+                <span>Enjoy 100% Refund On Course Completion</span>
+                <span class="strip-dot"></span>
+                <span>Learn from IIT alumni · Finish the course · Get 100% refund</span>
+                <span class="strip-dot"></span>
+                <span>1:1 Doubt Solving &amp; Mentorship Included</span>
+                <span class="strip-dot"></span>
+            </div>
+            <div class="strip-content" aria-hidden="true">
+                <span>Enjoy 100% Refund On Course Completion</span>
+                <span class="strip-dot"></span>
+                <span>Learn from IIT alumni · Finish the course · Get 100% back</span>
+                <span class="strip-dot"></span>
+                <span>1:1 Doubt Solving &amp; Mentorship Included</span>
+                <span class="strip-dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="gap:0;padding:0;">
+                <img src="TD_Logo-1.png" alt="TuteDude" style="height:44px;width:auto;object-fit:contain;display:block;">
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+                <div id="authButtons" style="display: flex; gap: 8px;">
+                    <button class="btn btn-ghost" id="loginBtn" style="padding: 8px 16px; font-size: 0.8rem; width: auto;">Log In</button>
+                    <button class="btn btn-primary" id="signupBtn" style="padding: 8px 16px; font-size: 0.8rem; width: auto;">Get Started Free</button>
+                </div>
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar">JD</div>
+                    <button class="btn btn-outline" id="logoutBtn" style="padding: 6px 12px; font-size: 0.8rem; width: auto;">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Header -->
+    <section class="category-header">
+        <div class="container">
+            <h1>All Courses</h1>
+            <p>Explore our 47+ courses designed by industry experts. Every single one comes with the 100% refund guarantee.</p>
+            <div class="category-stats">
+                <span><i class="fa-solid fa-book"></i> 47+ Courses</span>
+                <span><i class="fa-solid fa-users"></i> 100k+ Learners</span>
+                <span><i class="fa-solid fa-star" style="color: var(--highlight);"></i> 4.9/5 Rating</span>
+                <span><i class="fa-solid fa-rotate-left" style="color: var(--brand-success);"></i> 100% Refundable</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section-padding" style="padding-top: 20px;">
+        <div class="container">
+
+            <!-- Search Bar -->
+            <div class="filter-section">
+                <div class="search-bar" style="flex: 1; margin-bottom: 0;">
+                    <input type="text" id="courseSearch" placeholder="Search for courses (e.g. Python, UI/UX)...">
+                    <button aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <div class="course-count" id="courseCount">Showing 47 courses</div>
+            </div>
+
+            <!-- Mobile Filter Buttons -->
+            <div class="mobile-filters" id="mobileFilterList">
+                <button class="mobile-filter-btn active" data-category="all">All</button>
+                <button class="mobile-filter-btn" data-category="development">Development</button>
+                <button class="mobile-filter-btn" data-category="design">Design &amp; Video</button>
+                <button class="mobile-filter-btn" data-category="it">IT &amp; Software</button>
+                <button class="mobile-filter-btn" data-category="business">Business</button>
+                <button class="mobile-filter-btn" data-category="combo">Combo Packs</button>
+            </div>
+
+            <!-- Desktop Layout: Sidebar + Grid -->
+            <div class="courses-layout">
+
+                <!-- Sidebar Filters (Desktop) -->
+                <aside class="sidebar-filters">
+                    <h3>Categories</h3>
+                    <ul id="categoryFilterList">
+                        <li><a href="#" class="active" data-category="all">All Courses <span id="totalCount">47</span></a></li>
+                        <li><a href="#" data-category="development">Development <span>5</span></a></li>
+                        <li><a href="#" data-category="design">Design &amp; Video <span>6</span></a></li>
+                        <li><a href="#" data-category="it">IT &amp; Software <span>14</span></a></li>
+                        <li><a href="#" data-category="business">Business <span>7</span></a></li>
+                        <li><a href="#" data-category="combo">Combo Packs <span>15</span></a></li>
+                    </ul>
+                </aside>
+
+                <!-- Course Grid -->
+                <div class="courses-list-grid" id="courseGrid">
+
+                    <!-- ============ DEVELOPMENT (5) ============ -->
+                    <div class="course-list-card" data-category="development">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #3498DB 15%, var(--panel)); color: #3498DB;"><i class="fa-brands fa-react"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Development</span>
+                            <h4>Web Development MERN Stack</h4>
+                            <p>Master MongoDB, Express, React, and Node.js to build full-stack applications.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹2,999</span></div>
+                                <a href="template.html?id=mern-stack" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="development">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #9B59B6 15%, var(--panel)); color: #9B59B6;"><i class="fa-solid fa-mobile-alt"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Development</span>
+                            <h4>App Development</h4>
+                            <p>Build native and cross-platform mobile apps for iOS and Android.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹2,999</span></div>
+                                <a href="template.html?id=app-development" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="development">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #F1C40F 18%, var(--panel)); color: #B7950B;"><i class="fa-solid fa-feather"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Development</span>
+                            <h4>Flutter</h4>
+                            <p>Create beautiful, natively compiled applications with a single codebase.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹2,499</span></div>
+                                <a href="template.html?id=flutter" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="development">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #27AE60 15%, var(--panel)); color: #27AE60;"><i class="fa-brands fa-react"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Development</span>
+                            <h4>React JS</h4>
+                            <p>Learn the most popular frontend library to build interactive UIs.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹1,999</span></div>
+                                <a href="template.html?id=react-js" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="development">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #E74C3C 15%, var(--panel)); color: #E74C3C;"><i class="fa-solid fa-code"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Development</span>
+                            <h4>Full Stack Web Developer</h4>
+                            <p>Complete guide to frontend and backend web development.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹3,499</span></div>
+                                <a href="template.html?id=full-stack-combo" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============ DESIGN & VIDEO (6) ============ -->
+                    <div class="course-list-card" data-category="design">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #E74C3C 15%, var(--panel)); color: #E74C3C;"><i class="fa-solid fa-pen-nib"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Design &amp; Video</span>
+                            <h4>Adobe Illustrator</h4>
+                            <p>Master vector graphics and logo design with Adobe Illustrator.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹2,499</span></div>
+                                <a href="template.html?id=adobe-illustrator" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="design">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #E67E22 15%, var(--panel)); color: #E67E22;"><i class="fa-solid fa-image"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Design &amp; Video</span>
+                            <h4>Photoshop</h4>
+                            <p>Learn photo editing, retouching, and digital painting from scratch.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹2,499</span></div>
+                                <a href="template.html?id=photoshop" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="design">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #8E44AD 15%, var(--panel)); color: #8E44AD;"><i class="fa-solid fa-video"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Design &amp; Video</span>
+                            <h4>Premiere Pro</h4>
+                            <p>Professional video editing for YouTube, films, and social media.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹2,999</span></div>
+                                <a href="template.html?id=premiere-pro" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="design">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #2980B9 15%, var(--panel)); color: #2980B9;"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Design &amp; Video</span>
+                            <h4>After Effects</h4>
+                            <p>Create stunning motion graphics and visual effects for videos.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹2,999</span></div>
+                                <a href="template.html?id=after-effects" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="design">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #B7950B 15%, var(--panel)); color: #B7950B;"><i class="fa-solid fa-pencil-ruler"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Design &amp; Video</span>
+                            <h4>UI/UX Designing</h4>
+                            <p>Learn user research, wireframing, prototyping, and design thinking.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹1,999</span></div>
+                                <a href="template.html?id=ui-ux-designing" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="design">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #1E8449 15%, var(--panel)); color: #1E8449;"><i class="fa-solid fa-users-viewfinder"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Design &amp; Video</span>
+                            <h4>UX Research</h4>
+                            <p>Understand user behavior to design better products.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹1,999</span></div>
+                                <a href="template.html?id=ux-research" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============ IT & SOFTWARE (14) ============ -->
+                    <div class="course-list-card" data-category="it">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #9B59B6 15%, var(--panel)); color: #9B59B6;"><i class="fa-solid fa-robot"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">IT &amp; Software</span>
+                            <h4>AI Tools</h4>
+                            <p>Master the latest AI tools for productivity, creativity, and automation.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹2,499</span></div>
+                                <a href="template.html?id=ai-tools" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="it">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #3498DB 15%, var(--panel)); color: #3498DB;"><i class="fa-solid fa-code"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">IT &amp; Software</span>
+                            <h4>C++</h4>
+                            <p>Build a strong foundation in programming with C++.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹1,999</span></div>
+                                <a href="template.html?id=c-plus-plus" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="it">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #F1C40F 18%, var(--panel)); color: #B7950B;"><i class="fa-solid fa-trophy"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">IT &amp; Software</span>
+                            <h4>Competitive Programming</h4>
+                            <p>Master algorithms and data structures to crack coding interviews.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹2,999</span></div>
+                                <a href="template.html?id=competitive-programming" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="it">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #27AE60 15%, var(--panel)); color: #27AE60;"><i class="fa-solid fa-database"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">IT &amp; Software</span>
+                            <h4>Data Science</h4>
+                            <p>Learn analytics, visualization, and machine learning.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹4,999</span></div>
+                                <a href="template.html?id=data-science" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="it">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #E74C3C 15%, var(--panel)); color: #E74C3C;"><i class="fa-solid fa-sitemap"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">IT &amp; Software</span>
+                            <h4>DSA with C++</h4>
+                            <p>Master Data Structures and Algorithms using C++.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹2,999</span></div>
+                                <a href="template.html?id=dsa-cpp" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="it">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #E67E22 15%, var(--panel)); color: #E67E22;"><i class="fa-solid fa-server"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">IT &amp; Software</span>
+                            <h4>DBMS</h4>
+                            <p>Master database management systems and SQL.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹1,999</span></div>
+                                <a href="template.html?id=dbms" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="it">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #8E44AD 15%, var(--panel)); color: #8E44AD;"><i class="fa-solid fa-infinity"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">IT &amp; Software</span>
+                            <h4>DevOps</h4>
+                            <p>Learn CI/CD pipelines, Docker, Kubernetes, and cloud deployment.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹3,499</span></div>
+                                <a href="template.html?id=devops" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="it">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #2980B9 15%, var(--panel)); color: #2980B9;"><i class="fa-brands fa-python"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">IT &amp; Software</span>
+                            <h4>DSA with Python</h4>
+                            <p>Master Data Structures and Algorithms using Python.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹2,999</span></div>
+                                <a href="template.html?id=dsa-python" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="it">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #B7950B 15%, var(--panel)); color: #B7950B;"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">IT &amp; Software</span>
+                            <h4>Ethical Hacking</h4>
+                            <p>Learn penetration testing and cybersecurity from scratch.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹3,499</span></div>
+                                <a href="template.html?id=ethical-hacking" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="it">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #1E8449 15%, var(--panel)); color: #1E8449;"><i class="fa-brands fa-java"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">IT &amp; Software</span>
+                            <h4>Java</h4>
+                            <p>Master Java programming for backend and Android development.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹2,499</span></div>
+                                <a href="template.html?id=java" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="it">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #9B59B6 15%, var(--panel)); color: #9B59B6;"><i class="fa-solid fa-brain"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">IT &amp; Software</span>
+                            <h4>Machine Learning</h4>
+                            <p>Learn supervised and unsupervised learning, regression, and neural networks.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹4,999</span></div>
+                                <a href="template.html?id=machine-learning" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="it">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #3498DB 15%, var(--panel)); color: #3498DB;"><i class="fa-brands fa-python"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">IT &amp; Software</span>
+                            <h4>Python</h4>
+                            <p>From basics to advanced automation, data handling, and scripting.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹2,499</span></div>
+                                <a href="template.html?id=python" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="it">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #27AE60 15%, var(--panel)); color: #27AE60;"><i class="fa-solid fa-chart-line"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">IT &amp; Software</span>
+                            <h4>Gen AI</h4>
+                            <p>Generative AI and Large Language Models.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹3,999</span></div>
+                                <a href="template.html?id=ai-engineer-combo" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============ BUSINESS (7) ============ -->
+                    <div class="course-list-card" data-category="business">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #E67E22 15%, var(--panel)); color: #E67E22;"><i class="fa-solid fa-chart-line"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Business</span>
+                            <h4>Data Analytics</h4>
+                            <p>Power BI, Tableau, SQL, and Excel for data-driven decisions.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹2,999</span></div>
+                                <a href="template.html?id=data-analytics" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="business">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #E74C3C 15%, var(--panel)); color: #E74C3C;"><i class="fa-solid fa-bullhorn"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Business</span>
+                            <h4>Digital Marketing</h4>
+                            <p>SEO, Social Media, PPC, and Content Marketing strategies.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹2,999</span></div>
+                                <a href="template.html?id=digital-marketing" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="business">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #8E44AD 15%, var(--panel)); color: #8E44AD;"><i class="fa-solid fa-calculator"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Business</span>
+                            <h4>Financial Modelling &amp; Valuation</h4>
+                            <p>Build financial models and value companies like a pro.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹3,999</span></div>
+                                <a href="template.html?id=financial-modelling" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="business">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #2980B9 15%, var(--panel)); color: #2980B9;"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Business</span>
+                            <h4>Financial Risk Management</h4>
+                            <p>Identify, analyze, and mitigate financial risks in any organization.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹3,999</span></div>
+                                <a href="template.html?id=financial-risk" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="business">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #27AE60 15%, var(--panel)); color: #27AE60;"><i class="fa-solid fa-chart-pie"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Business</span>
+                            <h4>Power BI</h4>
+                            <p>Create interactive dashboards and business intelligence reports.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹1,999</span></div>
+                                <a href="template.html?id=power-bi" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="business">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #B7950B 15%, var(--panel)); color: #B7950B;"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Business</span>
+                            <h4>Stock Trading</h4>
+                            <p>Learn technical analysis, chart patterns, and trading strategies.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹3,999</span></div>
+                                <a href="template.html?id=stock-trading" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="business">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #1E8449 15%, var(--panel)); color: #1E8449;"><i class="fa-solid fa-coins"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Business</span>
+                            <h4>Stock Investing</h4>
+                            <p>Learn long-term value investing and portfolio management.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹699 <span>₹2,999</span></div>
+                                <a href="template.html?id=stock-investing" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============ COMBO PACKS (15) ============ -->
+                    <div class="course-list-card" data-category="combo">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #9B59B6 15%, var(--panel)); color: #9B59B6;"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Combo Pack</span>
+                            <h4>Creative Designer Combo Pack</h4>
+                            <p>Illustrator, Photoshop, InDesign, and Graphic Design with AI.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹1,499 <span>₹4,999</span></div>
+                                <a href="template.html?id=creative-designer-combo" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Pack</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="combo">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #3498DB 15%, var(--panel)); color: #3498DB;"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Combo Pack</span>
+                            <h4>Data Scientist Combo Pack</h4>
+                            <p>Data Science, Python, DBMS with SQL, and Machine Learning.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹1,499 <span>₹4,999</span></div>
+                                <a href="template.html?id=data-scientist-combo" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Pack</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="combo">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #F1C40F 18%, var(--panel)); color: #B7950B;"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Combo Pack</span>
+                            <h4>Tech Geek Combo Pack</h4>
+                            <p>Python, App Development, Ethical Hacking, Java, and MERN Stack.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹1,499 <span>₹4,999</span></div>
+                                <a href="template.html?id=tech-geek-combo" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Pack</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="combo">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #27AE60 15%, var(--panel)); color: #27AE60;"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Combo Pack</span>
+                            <h4>Full Stack Combo Pack</h4>
+                            <p>MERN Stack, React JS, DSA with Python, DevOps, Python, and DBMS.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹1,499 <span>₹4,999</span></div>
+                                <a href="template.html?id=full-stack-combo" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Pack</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="combo">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #E74C3C 15%, var(--panel)); color: #E74C3C;"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Combo Pack</span>
+                            <h4>Finance Combo Pack</h4>
+                            <p>Financial Modelling, Risk Management, Stock Market, and Analysis.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹1,499 <span>₹4,999</span></div>
+                                <a href="template.html?id=finance-professional-combo" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Pack</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="combo">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #E67E22 15%, var(--panel)); color: #E67E22;"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Combo Pack</span>
+                            <h4>App Developer Combo Pack</h4>
+                            <p>Java, Flutter, React Native, React JS, and App Development.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹1,499 <span>₹4,999</span></div>
+                                <a href="template.html?id=app-developer-combo" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Pack</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="combo">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #8E44AD 15%, var(--panel)); color: #8E44AD;"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Combo Pack</span>
+                            <h4>Data Analytics Combo Pack</h4>
+                            <p>Data Analysis, Power BI, Tableau, and SQL.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹1,499 <span>₹4,999</span></div>
+                                <a href="template.html?id=data-analyst-combo" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Pack</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="combo">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #2980B9 15%, var(--panel)); color: #2980B9;"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Combo Pack</span>
+                            <h4>Graphic Design Combo Pack</h4>
+                            <p>Photoshop, Illustrator, InDesign, and Graphic Design with AI.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹1,499 <span>₹4,999</span></div>
+                                <a href="template.html?id=graphic-designer-combo" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Pack</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="combo">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #B7950B 15%, var(--panel)); color: #B7950B;"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Combo Pack</span>
+                            <h4>AI Engineer Combo Pack</h4>
+                            <p>Python, Gen AI, Data Science, Machine Learning, Deep Learning, and NLP.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹1,499 <span>₹4,999</span></div>
+                                <a href="template.html?id=ai-engineer-combo" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Pack</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="combo">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #1E8449 15%, var(--panel)); color: #1E8449;"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Combo Pack</span>
+                            <h4>Marketing Combo Pack</h4>
+                            <p>Digital Marketing, Performance Marketing, SEO, Copy Writing, and Design.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹1,499 <span>₹4,999</span></div>
+                                <a href="template.html?id=marketer-combo" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Pack</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="combo">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #9B59B6 15%, var(--panel)); color: #9B59B6;"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Combo Pack</span>
+                            <h4>Video Editing Combo Pack</h4>
+                            <p>Premiere Pro, After Effects, DaVinci Resolve, and AI Video Generation.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹1,499 <span>₹4,999</span></div>
+                                <a href="template.html?id=video-editor-combo" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Pack</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="combo">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #3498DB 15%, var(--panel)); color: #3498DB;"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Combo Pack</span>
+                            <h4>DevOps &amp; Cloud Combo Pack</h4>
+                            <p>DevOps, AWS Cloud Practitioner, Linux, and Cloud Computing with AWS.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹1,499 <span>₹4,999</span></div>
+                                <a href="template.html?id=devops-cloud-combo" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Pack</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="combo">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #F1C40F 18%, var(--panel)); color: #B7950B;"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Combo Pack</span>
+                            <h4>Cyber Security Expert Combo Pack</h4>
+                            <p>Cyber Security, Ethical Hacking, Linux, and Python.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹1,499 <span>₹4,999</span></div>
+                                <a href="template.html?id=cyber-security-combo" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Pack</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-list-card" data-category="combo">
+                        <div class="course-list-card-img" style="background-color: color-mix(in srgb, #27AE60 15%, var(--panel)); color: #27AE60;"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="course-list-card-body">
+                            <span class="course-tag">Combo Pack</span>
+                            <h4>All 30 Courses</h4>
+                            <p>Get access to every single course on the platform with lifetime refund.</p>
+                            <div class="refund-badge"><i class="fa-solid fa-rotate-left"></i> 100% Refund</div>
+                            <div class="course-list-card-footer">
+                                <div class="course-price-tag">₹3,999 <span>₹45,435</span></div>
+                                <a href="template.html?id=all-access" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.8rem; width: auto;">View Pack</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo" style="margin-bottom:10px;gap:0;padding:0;">
+                        <img src="TD_Logo-1.png" alt="TuteDude" style="height:40px;width:auto;object-fit:contain;display:block;">
+                    </div>
+                    <p>Level up your career with expert mentorship and internships.</p>
+                    <div style="display: flex; gap: 15px; margin-top: 15px;">
+                        <a href="#"><i class="fa-brands fa-linkedin" style="font-size: 1.5rem; color: var(--text-grey);"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram" style="font-size: 1.5rem; color: var(--text-grey);"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube" style="font-size: 1.5rem; color: var(--text-grey);"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul><li><a href="#">About Us</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Use</a></li></ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Top Courses</h4>
+                    <ul><li><a href="#">Web Development</a></li><li><a href="#">Data Science</a></li><li><a href="#">UI/UX Design</a></li><li><a href="#">Python</a></li></ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul><li><i class="fa-solid fa-envelope"></i> support@tutedude.com</li><li><i class="fa-solid fa-phone"></i> +91 8570818694</li></ul>
+                </div>
+            </div>
+            <div class="footer-bottom">&copy; 2024 TuteDude. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+            <h2>Welcome Back</h2>
+            <form id="loginForm">
+                <div class="form-group"><label>Email</label><input type="email" placeholder="you@example.com" required></div>
+                <div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" required></div>
+                <button type="submit" class="btn btn-primary">Log In</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- Mobile Filter Buttons -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileFilterBtns = document.querySelectorAll('.mobile-filter-btn');
+            const courseCards = document.querySelectorAll('.course-list-card');
+            const courseCount = document.getElementById('courseCount');
+            const desktopFilterLinks = document.querySelectorAll('#categoryFilterList a');
+            const totalCountSpan = document.getElementById('totalCount');
+
+            if (totalCountSpan) {
+                totalCountSpan.textContent = courseCards.length;
+            }
+
+            function updateCount(count) {
+                if (courseCount) {
+                    courseCount.textContent = `Showing ${count} course${count !== 1 ? 's' : ''}`;
+                }
+            }
+
+            function filterCourses(category) {
+                let visibleCount = 0;
+                courseCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'flex';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                updateCount(visibleCount);
+
+                desktopFilterLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('data-category') === category);
+                });
+            }
+
+            mobileFilterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    mobileFilterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    filterCourses(btn.getAttribute('data-category'));
+                });
+            });
+
+            desktopFilterLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const category = link.getAttribute('data-category');
+                    filterCourses(category);
+
+                    mobileFilterBtns.forEach(btn => {
+                        btn.classList.toggle('active', btn.getAttribute('data-category') === category);
+                    });
+                });
+            });
+
+            updateCount(courseCards.length);
+        });
+    </script>
+</body>
+</html>
