@@ -16,7 +16,6 @@
         const cat = course.category;
 
         if (course.isCombo) {
-            // Parse bundled technologies or skills from description
             const items = desc.split(/[,&]|\band\b/).map(s => s.replace(/\.$/, '').trim()).filter(Boolean);
             const outcomes = items.map(tool => `Master ${tool} with practical, hands-on industry assignments`);
             outcomes.push(`Build end-to-end portfolio projects integrating ${items.slice(0, 2).join(' and ')}`);
@@ -26,7 +25,6 @@
             return outcomes.slice(0, 8);
         }
 
-        // Domain-specific tailored points
         if (cat === 'development') {
             return [
                 `Build scalable real-world applications using modern ${title} best practices`,
@@ -91,9 +89,7 @@
         if (cat === 'development') {
             return [
                 {
-                    cat: 'foundation',
-                    nodeClass: 'done',
-                    statusClass: 'status-done',
+                    cat: 'foundation', nodeClass: 'done', statusClass: 'status-done',
                     statusText: 'COMPLETED ✓',
                     title: 'Sprint 01: Core Foundations & Modern Workflow',
                     duration: '4 LESSONS · 1 WORKSHOP',
@@ -108,9 +104,7 @@
                     ]
                 },
                 {
-                    cat: 'frontend',
-                    nodeClass: 'done',
-                    statusClass: 'status-done',
+                    cat: 'frontend', nodeClass: 'done', statusClass: 'status-done',
                     statusText: 'COMPLETED ✓',
                     title: 'Sprint 02: Component Architecture & State Management',
                     duration: '5 LESSONS · 2 LABS',
@@ -125,9 +119,7 @@
                     ]
                 },
                 {
-                    cat: 'backend',
-                    nodeClass: 'milestone',
-                    statusClass: 'status-milestone',
+                    cat: 'backend', nodeClass: 'milestone', statusClass: 'status-milestone',
                     statusText: 'MILESTONE ★',
                     title: 'Sprint 03: APIs, Data Persistence & Auth',
                     duration: '6 LESSONS · 1 MILESTONE PROJECT',
@@ -142,9 +134,7 @@
                     ]
                 },
                 {
-                    cat: 'deploy',
-                    nodeClass: 'active',
-                    statusClass: 'status-active',
+                    cat: 'deploy', nodeClass: 'active', statusClass: 'status-active',
                     statusText: 'CURRENT FOCUS',
                     title: 'Sprint 04: Production Build, Testing & CI/CD',
                     duration: '4 LESSONS · 1 CAPSTONE REVIEW',
@@ -159,9 +149,7 @@
                     ]
                 },
                 {
-                    cat: 'deploy',
-                    nodeClass: 'locked',
-                    statusClass: 'status-locked',
+                    cat: 'deploy', nodeClass: 'locked', statusClass: 'status-locked',
                     statusText: 'LOCKED',
                     title: 'Sprint 05: Placement Accelerator & Career Launchpad',
                     duration: '3 SESSIONS · 1:1 COACHING',
@@ -178,9 +166,7 @@
         } else if (cat === 'design') {
             return [
                 {
-                    cat: 'foundation',
-                    nodeClass: 'done',
-                    statusClass: 'status-done',
+                    cat: 'foundation', nodeClass: 'done', statusClass: 'status-done',
                     statusText: 'COMPLETED ✓',
                     title: 'Sprint 01: Design Principles & Tool Mastery',
                     duration: '4 LESSONS · 1 WORKSHOP',
@@ -195,9 +181,7 @@
                     ]
                 },
                 {
-                    cat: 'frontend',
-                    nodeClass: 'milestone',
-                    statusClass: 'status-milestone',
+                    cat: 'frontend', nodeClass: 'milestone', statusClass: 'status-milestone',
                     statusText: 'MILESTONE ★',
                     title: 'Sprint 02: User Experience & Design Systems',
                     duration: '5 LESSONS · 1 MILESTONE REVIEW',
@@ -212,9 +196,7 @@
                     ]
                 },
                 {
-                    cat: 'backend',
-                    nodeClass: 'active',
-                    statusClass: 'status-active',
+                    cat: 'backend', nodeClass: 'active', statusClass: 'status-active',
                     statusText: 'CURRENT FOCUS',
                     title: 'Sprint 03: End-to-End Product Redesign & Prototyping',
                     duration: '5 LESSONS · 1 CASE STUDY',
@@ -229,9 +211,7 @@
                     ]
                 },
                 {
-                    cat: 'deploy',
-                    nodeClass: 'locked',
-                    statusClass: 'status-locked',
+                    cat: 'deploy', nodeClass: 'locked', statusClass: 'status-locked',
                     statusText: 'LOCKED',
                     title: 'Sprint 04: Developer Handoff, Portfolio & Placement',
                     duration: '4 SESSIONS · 1:1 MENTORSHIP',
@@ -249,9 +229,7 @@
         } else if (cat === 'business') {
             return [
                 {
-                    cat: 'foundation',
-                    nodeClass: 'done',
-                    statusClass: 'status-done',
+                    cat: 'foundation', nodeClass: 'done', statusClass: 'status-done',
                     statusText: 'COMPLETED ✓',
                     title: 'Sprint 01: Core Concepts & Analytical Foundations',
                     duration: '4 LESSONS · 1 WORKSHOP',
@@ -266,9 +244,7 @@
                     ]
                 },
                 {
-                    cat: 'frontend',
-                    nodeClass: 'milestone',
-                    statusClass: 'status-milestone',
+                    cat: 'frontend', nodeClass: 'milestone', statusClass: 'status-milestone',
                     statusText: 'MILESTONE ★',
                     title: 'Sprint 02: Dynamic Dashboard & Valuation Models',
                     duration: '5 LESSONS · 1 MILESTONE LAB',
@@ -283,9 +259,7 @@
                     ]
                 },
                 {
-                    cat: 'backend',
-                    nodeClass: 'active',
-                    statusClass: 'status-active',
+                    cat: 'backend', nodeClass: 'active', statusClass: 'status-active',
                     statusText: 'CURRENT FOCUS',
                     title: 'Sprint 03: Corporate Case Study & Strategic Recommendations',
                     duration: '4 LESSONS · 1 CAPSTONE',
@@ -300,9 +274,7 @@
                     ]
                 },
                 {
-                    cat: 'deploy',
-                    nodeClass: 'locked',
-                    statusClass: 'status-locked',
+                    cat: 'deploy', nodeClass: 'locked', statusClass: 'status-locked',
                     statusText: 'LOCKED',
                     title: 'Sprint 04: Career Strategy, Resume & Finance Interviews',
                     duration: '3 SESSIONS · 1:1 COACHING',
@@ -321,9 +293,7 @@
         // Default / IT / Combo Track
         return [
             {
-                cat: 'foundation',
-                nodeClass: 'done',
-                statusClass: 'status-done',
+                cat: 'foundation', nodeClass: 'done', statusClass: 'status-done',
                 statusText: 'COMPLETED ✓',
                 title: 'Sprint 01: Architecture & Technical Foundations',
                 duration: '4 LESSONS · 1 WORKSHOP',
@@ -338,9 +308,7 @@
                 ]
             },
             {
-                cat: 'frontend',
-                nodeClass: 'done',
-                statusClass: 'status-done',
+                cat: 'frontend', nodeClass: 'done', statusClass: 'status-done',
                 statusText: 'COMPLETED ✓',
                 title: 'Sprint 02: Practical Implementation & Deep Dive',
                 duration: '5 LESSONS · 2 PROJECTS',
@@ -355,9 +323,7 @@
                 ]
             },
             {
-                cat: 'backend',
-                nodeClass: 'milestone',
-                statusClass: 'status-milestone',
+                cat: 'backend', nodeClass: 'milestone', statusClass: 'status-milestone',
                 statusText: 'MILESTONE ★',
                 title: 'Sprint 03: Industry Project & Architecture Milestone',
                 duration: '6 LESSONS · 1 MILESTONE REVIEW',
@@ -372,9 +338,7 @@
                 ]
             },
             {
-                cat: 'deploy',
-                nodeClass: 'active',
-                statusClass: 'status-active',
+                cat: 'deploy', nodeClass: 'active', statusClass: 'status-active',
                 statusText: 'CURRENT FOCUS',
                 title: 'Sprint 04: Production Deployment & Real-world Delivery',
                 duration: '4 LESSONS · LIVE DEPLOYMENT',
@@ -389,9 +353,7 @@
                 ]
             },
             {
-                cat: 'deploy',
-                nodeClass: 'locked',
-                statusClass: 'status-locked',
+                cat: 'deploy', nodeClass: 'locked', statusClass: 'status-locked',
                 statusText: 'LOCKED',
                 title: 'Sprint 05: Placement Assistance & Career Launchpad',
                 duration: '3 SESSIONS · 1:1 SESSIONS',
@@ -584,33 +546,35 @@
         const instBio = document.getElementById('instructorBio');
         if (instBio) instBio.textContent = instructor.bio;
 
-        // 9. Sticky Enroll Card
-        const priceCurrent = document.getElementById('sidebarPriceCurrent');
-        if (priceCurrent) priceCurrent.textContent = formatINR(course.price);
+        // 9. Enroll Voucher Card — full dynamic update
+        // Course title in the voucher (was hardcoded before)
+        const voucherTitle = document.getElementById('voucherCourseTitle');
+        if (voucherTitle) voucherTitle.textContent = course.title;
 
-        const priceOrig = document.getElementById('sidebarPriceOriginal');
-        if (priceOrig) priceOrig.textContent = formatINR(course.originalPrice);
-
-        const discountPct = Math.max(10, Math.round((1 - (course.price / course.originalPrice)) * 100));
-        const discountEl = document.getElementById('sidebarDiscountText');
-        if (discountEl) discountEl.textContent = `You get ${discountPct}% off today!`;
-
-        const refundDesc = document.getElementById('sidebarRefundDesc');
-        if (refundDesc) {
-            refundDesc.textContent = `Complete ${course.title} within 3 months and get your full ${formatINR(course.price)} back in your bank account.`;
+        // Subtitle: SELF-PACED vs BUNDLE PACK based on isCombo
+        const voucherSub = document.getElementById('voucherCourseSub');
+        if (voucherSub) {
+            voucherSub.textContent = course.isCombo
+                ? 'BUNDLE PACK · LIFETIME ACCESS'
+                : 'SELF-PACED · LIFETIME ACCESS';
         }
 
-        const featuresList = document.getElementById('sidebarFeaturesList');
-        if (featuresList) {
-            featuresList.innerHTML = `
-                <li><i class="fa-solid fa-check-circle"></i> Lifetime access to full course &amp; future updates</li>
-                <li><i class="fa-solid fa-check-circle"></i> 1:1 Mentorship sessions with IIT Alumni</li>
-                <li><i class="fa-solid fa-check-circle"></i> Instant live doubt solving via chat &amp; calls</li>
-                <li><i class="fa-solid fa-check-circle"></i> Hands-on industry projects &amp; code reviews</li>
-                <li><i class="fa-solid fa-check-circle"></i> 100% Placement Support &amp; Job Assistance</li>
-                <li><i class="fa-solid fa-check-circle"></i> Verified Certificate of completion</li>
-                ${course.isCombo ? '<li><i class="fa-solid fa-check-circle"></i> Access to all bundled courses in this pack</li>' : ''}
-            `;
+        // Course fee row
+        const voucherFee = document.getElementById('voucherCourseFee');
+        if (voucherFee) voucherFee.textContent = formatINR(course.price);
+
+        // Refund amount = same as course fee (100% refund guarantee)
+        const voucherRefund = document.getElementById('voucherRefundValue');
+        if (voucherRefund) voucherRefund.textContent = formatINR(course.price);
+
+        // "You pay ₹0" panel
+        const voucherPayNow = document.getElementById('voucherPayNow');
+        if (voucherPayNow) voucherPayNow.textContent = '₹0';
+
+        // Refund description under the highlight panel
+        const voucherDesc = document.getElementById('voucherRefundDesc');
+        if (voucherDesc) {
+            voucherDesc.innerHTML = `Finish ${course.title} within 6 months<br>and we return every rupee.`;
         }
 
         // 10. Update Course Switcher Dropdown
@@ -646,7 +610,6 @@
             };
         });
 
-        // Toast notifications for sprint nodes
         const toast = document.getElementById('pipelineToast');
         let toastTimer = null;
         function showToast(html) {
@@ -680,7 +643,6 @@
 
         switcher.innerHTML = '';
 
-        // Categories mapping
         const categoryLabels = {
             combo: 'Combo Packs',
             development: 'Development',
@@ -696,7 +658,6 @@
             groups[cat].push(c);
         });
 
-        // Order of categories
         const catOrder = ['combo', 'development', 'design', 'it', 'business'];
         catOrder.forEach(cat => {
             if (!groups[cat]) return;
@@ -716,7 +677,6 @@
             const selectedId = e.target.value;
             const targetCourse = allCourses.find(c => c.id === selectedId);
             if (targetCourse) {
-                // Update URL without refresh
                 const newUrl = new URL(window.location.href);
                 newUrl.searchParams.set('id', selectedId);
                 window.history.pushState({ id: selectedId }, '', newUrl.toString());
@@ -745,7 +705,6 @@
             return;
         }
 
-        // Detect course from URL params
         const urlParams = new URLSearchParams(window.location.search);
         const queryId = urlParams.get('id') || urlParams.get('course');
 
@@ -759,7 +718,6 @@
             );
         }
 
-        // Default to mern-stack if not found or no query
         if (!activeCourse) {
             activeCourse = courses.find(c => c.id === 'mern-stack') || courses[0];
         }
@@ -767,8 +725,7 @@
         populateSwitcher(courses, activeCourse.id);
         renderCourse(activeCourse, courses);
 
-        // Handle browser Back/Forward navigation
-        window.addEventListener('popstate', function (e) {
+        window.addEventListener('popstate', function () {
             const params = new URLSearchParams(window.location.search);
             const id = params.get('id') || 'mern-stack';
             const course = courses.find(c => c.id === id) || courses[0];

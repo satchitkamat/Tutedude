@@ -479,33 +479,64 @@
 
                 </div>
 
-                <!-- Right Column: Enroll Card (Sticky) -->
+                <!-- Right Column: Enroll Card — Refund Voucher -->
                 <aside class="enroll-sidebar">
-                    <div class="enroll-card">
-                        <div class="enroll-price"><span id="sidebarPriceCurrent">₹699</span> <span id="sidebarPriceOriginal">₹2,999</span></div>
-                        <p class="enroll-discount-text" id="sidebarDiscountText">You get 76% off today!</p>
+                    <div class="voucher-card">
 
-                        <!-- REFUND HIGHLIGHT BOX -->
-                        <div class="refund-highlight">
-                            <i class="fa-solid fa-rotate-left"></i>
-                            <div>
-                                <strong>100% Refund Guarantee</strong>
-                                <p id="sidebarRefundDesc">Complete the course within 3 months and get your full ₹699 back in your bank account.</p>
+                        <!-- Top half: course + feature rows -->
+                        <div class="voucher-top">
+                            <span class="voucher-org">TUTEDUDE</span>
+
+                            <div class="voucher-title-row">
+                                <h2 class="voucher-title" id="voucherCourseTitle">UI/UX Designing</h2>
+                                <span class="voucher-stamp">REFUNDED</span>
+                            </div>
+
+                            <p class="voucher-sub" id="voucherCourseSub">SELF-PACED · LIFETIME ACCESS</p>
+
+                            <div class="voucher-rows">
+                                <div class="voucher-row">
+                                    <span class="v-label">Course fee</span>
+                                    <span class="v-value" id="voucherCourseFee">₹699</span>
+                                </div>
+                                <div class="voucher-row">
+                                    <span class="v-label">1:1 doubt solving</span>
+                                    <span class="v-value">Included</span>
+                                </div>
+                                <div class="voucher-row">
+                                    <span class="v-label">Mentorship</span>
+                                    <span class="v-value">Included</span>
+                                </div>
+                                <div class="voucher-row">
+                                    <span class="v-label">Certificate</span>
+                                    <span class="v-value">Included</span>
+                                </div>
                             </div>
                         </div>
 
-                        <button class="btn btn-primary" style="width: 100%; padding: 16px; font-size: 1.05rem; margin-bottom: 12px;">Start Learning Free</button>
-                        <button class="btn btn-ghost" style="width: 100%; padding: 16px; font-size: 1.05rem;">View Syllabus</button>
+                        <!-- Perforation divider with side notches -->
+                        <div class="voucher-divider">
+                            <span class="notch notch-left"></span>
+                            <span class="dashed-line"></span>
+                            <span class="notch notch-right"></span>
+                        </div>
 
-                        <ul id="sidebarFeaturesList">
-                            <li><i class="fa-solid fa-check-circle"></i> Lifetime access to course</li>
-                            <li><i class="fa-solid fa-check-circle"></i> 1:1 Mentorship sessions</li>
-                            <li><i class="fa-solid fa-check-circle"></i> Live doubt solving</li>
-                            <li><i class="fa-solid fa-check-circle"></i> Dedicated Projects</li>
-                            <li><i class="fa-solid fa-check-circle"></i> Placement Support &amp; Job Assistance</li>
-                            <li><i class="fa-solid fa-check-circle"></i> Certificate of completion</li>
-                        </ul>
-                        <div style="font-size: 0.75rem; color: var(--ink-soft); text-align: center; margin-top: 15px;"><i class="fa-solid fa-lock"></i> Secure payment. No hidden charges.</div>
+                        <!-- Bottom half: refund total + hero panel -->
+                        <div class="voucher-bottom">
+                            <div class="voucher-refund-row">
+                                <span class="refund-label">Refund</span>
+                                <span class="refund-value" id="voucherRefundValue">₹699</span>
+                            </div>
+
+                            <div class="voucher-highlight">
+                                <div class="voucher-highlight-main">You pay <span id="voucherPayNow">₹0</span></div>
+                                <p class="voucher-highlight-sub" id="voucherRefundDesc">
+                                    Finish the course within 6 months<br>
+                                    and we return every rupee.
+                                </p>
+                            </div>
+                        </div>
+
                     </div>
                 </aside>
 

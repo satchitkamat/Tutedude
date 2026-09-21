@@ -331,7 +331,7 @@ header {
 }
 
 /* =========================================
-   REFUND PROMISE BOX
+   REFUND PROMISE BOX (HOME HERO)
    ========================================= */
 .refund-promise-box {
     background-color: var(--panel);
@@ -518,7 +518,7 @@ header {
 }
 
 /* =========================================
-   COURSE CARDS
+   COURSE CARDS (HOME)
    ========================================= */
 .courses-grid { display: grid; grid-template-columns: 1fr; gap: 22px; }
 .course-card {
@@ -1126,63 +1126,6 @@ footer {
 }
 .course-switcher-box select option { background: var(--panel); color: var(--ink); }
 
-.enroll-card {
-    background-color: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    padding: 28px;
-    box-shadow: var(--shadow-lg);
-    position: sticky;
-    top: 90px;
-}
-.enroll-price {
-    font-family: var(--serif);
-    font-size: 2.2rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 6px;
-}
-.enroll-price span {
-    font-family: var(--sans);
-    font-size: 1rem;
-    color: var(--ink-soft);
-    text-decoration: line-through;
-    font-weight: 400;
-    margin-left: 8px;
-}
-.enroll-discount-text {
-    font-family: var(--mono);
-    font-size: 11.5px;
-    color: var(--accent);
-    font-weight: 700;
-    margin-bottom: 18px;
-    letter-spacing: 0.04em;
-}
-.refund-highlight {
-    background-color: var(--accent-soft);
-    border: 1px dashed color-mix(in srgb, var(--accent) 35%, transparent);
-    border-radius: var(--radius-sm);
-    padding: 16px;
-    margin: 20px 0;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-}
-.refund-highlight i { font-size: 1.4rem; margin-top: 2px; color: var(--accent); }
-.refund-highlight div { font-size: 0.88rem; line-height: 1.45; }
-.refund-highlight strong { display: block; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
-.refund-highlight p { color: var(--ink-soft); margin: 0; }
-.enroll-card ul { margin: 20px 0; padding: 0; }
-.enroll-card ul li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.92rem;
-    margin-bottom: 12px;
-    color: var(--ink-soft);
-}
-.enroll-card ul li i { color: var(--accent); width: 16px; }
-
 .content-section { margin-bottom: 44px; }
 .content-section h3 {
     font-size: 1.5rem;
@@ -1232,6 +1175,237 @@ footer {
     background-color: color-mix(in srgb, var(--badge-color) 20%, transparent);
     color: color-mix(in srgb, var(--badge-color) 85%, #fff);
     border-color: color-mix(in srgb, var(--badge-color) 35%, transparent);
+}
+
+/* =========================================
+   ENROLL CARD — REFUND VOUCHER
+   ========================================= */
+.enroll-sidebar {
+    align-self: start;
+    position: sticky;
+    top: 90px;
+}
+
+.voucher-card {
+    background-color: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    position: relative;
+    font-family: var(--sans);
+}
+
+/* ---------- Top half ---------- */
+.voucher-top {
+    padding: 28px 26px 22px;
+    overflow: visible;
+}
+
+.voucher-org {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.voucher-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 10px;
+    flex-wrap: nowrap;
+}
+
+/* Higher specificity so the global h2 serif rule doesn't win */
+.voucher-card .voucher-title,
+.voucher-card h2.voucher-title {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 1.65rem;
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: -0.025em;
+    margin: 0;
+    padding: 0;
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: none;
+    word-break: break-word;
+}
+
+/* Refunded stamp */
+.voucher-stamp {
+    display: inline-block;
+    transform: rotate(-6deg);
+    border: 2px solid var(--accent);
+    border-radius: 6px;
+    padding: 5px 11px;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 6%, transparent);
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--accent) 12%, transparent);
+    white-space: nowrap;
+    flex: 0 0 auto;
+    align-self: flex-start;
+    margin-top: 2px;
+    line-height: 1.2;
+}
+
+.voucher-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    margin: 0 0 26px;
+}
+
+/* Feature rows */
+.voucher-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.voucher-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.v-label {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-soft);
+    letter-spacing: 0.01em;
+}
+
+.v-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+}
+
+/* ---------- Perforation divider ---------- */
+.voucher-divider {
+    position: relative;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.dashed-line {
+    flex: 1;
+    border-top: 1.5px dashed var(--line);
+    margin: 0 12px;
+}
+
+.notch {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--canvas);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+.notch-left {
+    left: -9px;
+    border-right: 1px solid var(--line);
+    box-shadow: inset -2px 0 3px rgba(24, 20, 31, 0.04);
+}
+.notch-right {
+    right: -9px;
+    border-left: 1px solid var(--line);
+    box-shadow: inset 2px 0 3px rgba(24, 20, 31, 0.04);
+}
+
+[data-theme="dark"] .notch {
+    box-shadow: none;
+}
+
+/* ---------- Bottom half ---------- */
+.voucher-bottom {
+    padding: 22px 26px 28px;
+}
+
+.voucher-refund-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+}
+
+.refund-label {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+}
+
+.refund-value {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 1.75rem;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+}
+
+/* Highlight panel */
+.voucher-highlight {
+    background-color: var(--accent-soft);
+    border-radius: 14px;
+    padding: 26px 20px;
+    text-align: center;
+}
+
+.voucher-highlight-main {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 1.7rem;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 10px;
+}
+
+.voucher-highlight-sub {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+    letter-spacing: 0.01em;
+}
+
+/* Mobile */
+@media (max-width: 1023px) {
+    .enroll-sidebar {
+        position: static;
+    }
+}
+
+@media (max-width: 767px) {
+    .voucher-top { padding: 22px 20px 18px; }
+    .voucher-bottom { padding: 18px 20px 22px; }
+    .voucher-card .voucher-title,
+    .voucher-card h2.voucher-title { font-size: 1.45rem; }
+    .voucher-highlight-main { font-size: 1.45rem; }
+    .refund-value { font-size: 1.5rem; }
 }
 
 /* ============================================================
